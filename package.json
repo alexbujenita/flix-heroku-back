@@ -16,6 +16,9 @@
   "bugs": {
     "url": "https://github.com/alexbujenita/flix-node-back/issues"
   },
+  "engines": {
+    "node": "14.x"
+  },
   "homepage": "https://github.com/alexbujenita/flix-node-back#readme",
   "dependencies": {
     "axios": "^0.21.1",
