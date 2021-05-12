@@ -1,4 +1,4 @@
-const PRIVATE_KEY= 'sss';
+const PRIVATE_KEY= process.env.TOKEN;
 const signInRouter = require("express").Router();
 const db = require("../../../models/index");
 const jwt = require("jsonwebtoken");

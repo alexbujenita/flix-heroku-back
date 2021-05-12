@@ -1,4 +1,4 @@
-const PRIVATE_KEY = 'test';
+const PRIVATE_KEY = process.env.TOKEN;
 const jwt = require("jsonwebtoken");
 
 module.exports = async function (req, res, next) {
