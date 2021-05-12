@@ -1,4 +1,4 @@
-const API_KEY = 'sss';
+const API_KEY = process.env.TMDB_API;
 const { GENRES } = require("./constants");
 
 /**

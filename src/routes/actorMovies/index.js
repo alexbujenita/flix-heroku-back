@@ -1,7 +1,7 @@
 const actorMoviesRouter = require("express").Router();
 const axios = require("axios");
 const uniqBy = require("lodash.uniqby");
-const API_KEY = 'sss';
+const API_KEY = process.env.TMDB_API;
 const { colours } = require("../../utils/colours");
 
 const actorMoviesCache = new Map();

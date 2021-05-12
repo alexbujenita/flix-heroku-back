@@ -1,5 +1,5 @@
 const axios = require("axios");
-const API_KEY = 'sss';
+const API_KEY = process.env.TMDB_API;
 
 async function generateFavPages(userFavs, doc) {
   for (const fav of userFavs) {
