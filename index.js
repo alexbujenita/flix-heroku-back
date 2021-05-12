@@ -32,7 +32,7 @@ app.use(express.json());
 app.use(compression({filter: shouldCompress}))
 
 applyApi(app);
-
+console.log(process.env)
 app.listen(5000, () => {
   console.log("Server started on port 5000");
 });
