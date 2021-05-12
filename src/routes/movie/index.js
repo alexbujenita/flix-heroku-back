@@ -1,6 +1,6 @@
 const movieRouter = require("express").Router();
 const axios = require("axios");
-const API_KEY = require("../../../secrets").API_KEY;
+const API_KEY = 'sss';
 const { colours } = require("../../utils/colours");
 
 const movieCache = new Map();

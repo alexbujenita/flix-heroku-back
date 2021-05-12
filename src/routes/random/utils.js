@@ -1,4 +1,4 @@
-const API_KEY = require("../../../secrets").API_KEY;
+const API_KEY = 'sss';
 const { GENRES } = require("./constants");
 
 /**

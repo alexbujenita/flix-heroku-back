@@ -1,4 +1,4 @@
-const { PRIVATE_KEY } = require("../../../secrets");
+const PRIVATE_KEY= 'sss';
 const signInRouter = require("express").Router();
 const db = require("../../../models/index");
 const jwt = require("jsonwebtoken");
