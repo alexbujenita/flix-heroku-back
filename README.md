@@ -126,3 +126,6 @@ Modifies the UserFavourite entry either with the boolean 'seen' and 'watchlist' 
 ##### DELETE
 
 Removes the UserFavourite entry of the requesting user.
+
+# FOR HEROKU
+Remember to run ```heroku run:detached npx sequelize-cli db:migrate``` if the db can't be found

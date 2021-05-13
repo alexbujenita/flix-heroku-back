@@ -18,10 +18,14 @@ const app = express();
 
 app.use(
   cors({
-    origin: ["http://localhost:3000", "http://localhost:3001"],
+    origin: ["http://localhost:3000", "http://localhost:3001", "https://flix-heroku.vercel.app"],
     credentials: true,
   })
 );
+
+app.use("/test", (_, res) => {
+  res.send('<h1>WORKS</h1>')
+})
 
 app.use(cookieParser());
 
@@ -32,7 +36,7 @@ app.use(express.json());
 app.use(compression({filter: shouldCompress}))
 
 applyApi(app);
-
-app.listen(3001, () => {
-  console.log("Server started on port 3001");
+console.log(process.env)
+app.listen(process.env.PORT || 5000, () => {
+  console.log("Server started on port 5000");
 });

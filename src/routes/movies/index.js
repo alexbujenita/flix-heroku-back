@@ -1,6 +1,6 @@
 const moviesRouter = require("express").Router();
 const axios = require("axios");
-const API_KEY = require("../../../secrets").API_KEY;
+const API_KEY = process.env.TMDB_API;
 
 moviesRouter.get("/", async (req, res) => {
   const {

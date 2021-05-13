@@ -1,4 +1,4 @@
-const { PRIVATE_KEY } = require("../../../secrets");
+const PRIVATE_KEY= process.env.TOKEN;
 const signInRouter = require("express").Router();
 const db = require("../../../models/index");
 const jwt = require("jsonwebtoken");
@@ -21,7 +21,7 @@ signInRouter.post("/", async (req, res) => {
         maxAge: 2 * 24 * 60 * 60 * 1000, // multiplier days hours minutes secs ms (2 DAYS)
         // You can't access these tokens in the client's javascript if true
         httpOnly: false,
-        domain: "localhost",
+        domain: "https://flix-heroku.vercel.app",
         path: "/",
         signed: false,
         // Forces to use https in production
