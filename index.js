@@ -23,7 +23,7 @@ app.use(
   })
 );
 
-app.use("/test", (_, res) => {
+app.use("/test", (req, res) => {
   res.send('<h1>WORKS</h1>')
 })
 
@@ -37,6 +37,7 @@ app.use(compression({filter: shouldCompress}))
 
 applyApi(app);
 console.log(process.env)
-app.listen(process.env.PORT || 5000, () => {
-  console.log("Server started on port 5000");
+const APP_PORT = process.env.PORT || 5000
+app.listen(APP_PORT, () => {
+  console.log("Server started on port: " + APP_PORT);
 });
