@@ -2,6 +2,12 @@
 
 A backend for retrieving films, saving them with personal content and with the possibility of having users.
 
+## HEROKU
+
+First `heroku login`
+
+Second `flix-heroku-back % git push heroku master:main`
+
 ## Installation
 
 Clone the repo and:
