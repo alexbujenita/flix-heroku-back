@@ -31,7 +31,10 @@ userFavsRouter.get("/user-favs", authJWT, async (req, res) => {
 userFavsRouter.get("/user-favs/:originalId", authJWT, async (req, res) => {
   try {
     const fav = await db.UserFavourite.findOne({
-      where: { movieRefId: parseInt(req.params.originalId) },
+      where: {
+        movieRefId: parseInt(req.params.originalId),
+        userId: req.loggedUser,
+      },
     });
     res.send(fav);
   } catch (error) {
