@@ -8,9 +8,7 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      UserFavourite.belongsTo(models.User, {
-        foreignKey: "userId",
-      });
+      UserFavourite.belongsTo(models.User);
     }
   }
   UserFavourite.init(
