@@ -7,6 +7,7 @@ const generateFavPages = require("../../utils/generateFavPages");
 userFavsRouter.get("/user-favs", authJWT, async (req, res) => {
   try {
     const userFavs = await db.User.findByPk(req.loggedUser, {
+      order: [[db.UserFavourite, "movieTitle", "ASC"]],
       include: {
         model: db.UserFavourite,
         attributes: [
