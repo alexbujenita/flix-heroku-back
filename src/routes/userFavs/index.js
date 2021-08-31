@@ -20,7 +20,9 @@ userFavsRouter.get("/user-favs", authJWT, async (req, res) => {
     }
 
     if (searchQuery) {
-      where.movieTitle = { [db.Sequelize.Op.substring]: searchQuery };
+      where.movieTitle = {
+        [db.Sequelize.Op.substring]: searchQuery.toLowerCase(),
+      };
     }
 
     const userFavs = await db.User.findAndCountAll({
