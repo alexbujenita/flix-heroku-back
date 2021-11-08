@@ -1,32 +1,36 @@
 const { pingRouter } = require("./ping");
-const { moviesRouter } = require("./movies");
 const { movieRouter } = require("./movie");
-const { movieTrailerRouter } = require("./movieTrailer");
-const { movieCreditsRouter } = require("./movieCredits");
-const { actorMoviesRouter } = require("./actorMovies");
+const { moviesRouter } = require("./movies");
+const { actorInfo } = require("./actorInfo");
 const { searchRouter } = require("./search");
 const { randomRouter } = require("./random");
+const { userFavsRouter } = require("./userFavs");
 const { signUpRouter } = require("./auth/signUp");
 const { signInRouter } = require("./auth/signIn");
-const { userFavsRouter } = require("./userFavs");
-const { actorInfo } = require("./actorInfo");
 const { logoutRouter } = require("./auth/logout");
+const { actorMoviesRouter } = require("./actorMovies");
+const { movieCreditsRouter } = require("./movieCredits");
+const { movieTrailerRouter } = require("./movieTrailer");
+const { recommendationRouter } = require("./recommendation");
+const { certificationsRouter } = require("./certifications");
 
 const applyApi = (app) => {
   const routes = {
-    "/api/movies": moviesRouter,
+    "/status": pingRouter,
     "/api/movie": movieRouter,
-    "/api/actor-movies": actorMoviesRouter,
-    "/api/trailers": movieTrailerRouter,
-    "/api/credits": movieCreditsRouter,
-    "/api/search": searchRouter,
-    "/api/random": randomRouter,
-    "/api/auth/register": signUpRouter,
-    "/api/auth/login": signInRouter,
-    "/api/auth/logout": logoutRouter,
+    "/api/movies": moviesRouter,
     "/api/favs": userFavsRouter,
     "/api/actor-info": actorInfo,
-    "/status": pingRouter,
+    "/api/search": searchRouter,
+    "/api/random": randomRouter,
+    "/api/auth/login": signInRouter,
+    "/api/auth/logout": logoutRouter,
+    "/api/auth/register": signUpRouter,
+    "/api/credits": movieCreditsRouter,
+    "/api/trailers": movieTrailerRouter,
+    "/api/actor-movies": actorMoviesRouter,
+    "/api/recommendation": recommendationRouter,
+    "/api/certifications": certificationsRouter,
   };
 
   for (const [path, router] of Object.entries(routes)) {

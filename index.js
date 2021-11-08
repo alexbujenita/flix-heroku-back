@@ -23,10 +23,6 @@ app.use(
   })
 );
 
-app.use("/test", (req, res) => {
-  res.send('<h1>WORKS</h1>')
-})
-
 app.use(cookieParser());
 
 app.use(express.urlencoded({ extended: false }))
