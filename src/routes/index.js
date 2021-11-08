@@ -11,7 +11,6 @@ const { logoutRouter } = require("./auth/logout");
 const { actorMoviesRouter } = require("./actorMovies");
 const { movieCreditsRouter } = require("./movieCredits");
 const { movieTrailerRouter } = require("./movieTrailer");
-const { recommendationRouter } = require("./recommendation");
 const { certificationsRouter } = require("./certifications");
 
 const applyApi = (app) => {
@@ -29,7 +28,6 @@ const applyApi = (app) => {
     "/api/credits": movieCreditsRouter,
     "/api/trailers": movieTrailerRouter,
     "/api/actor-movies": actorMoviesRouter,
-    "/api/recommendation": recommendationRouter,
     "/api/certifications": certificationsRouter,
   };
 
