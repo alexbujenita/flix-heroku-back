@@ -6,7 +6,7 @@ const authJWT = require("../../middleware/auth/authJWT");
 const USER_ATTRB = ["id", "firstName", "lastName"];
 
 adminRouter.get("/users", authJWT, async (req, res) => {
-  console.log({loggedUser})
+  console.log({loggedUser: req.loggedUser})
   if (req.loggedUser !== 1) {
     return res.sendStatus(403);
   }
