@@ -42,7 +42,6 @@ adminRouter.get("/users/:id/movies", authJWT, async (req, res) => {
             "rating",
             "isRecommended",
             "description",
-            "createdAt",
           ],
         },
       ],
