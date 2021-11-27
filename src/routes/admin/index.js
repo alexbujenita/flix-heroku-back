@@ -76,6 +76,7 @@ adminRouter.get("/users/:id/movies", authJWT, async (req, res) => {
 
     res.send(userFavs);
   } catch (error) {
+    console.log(error)
     res.status(500).send(error);
   }
 });
