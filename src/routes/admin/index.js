@@ -70,7 +70,7 @@ adminRouter.get("/users/:id/movies", authJWT, async (req, res) => {
           ],
         },
       ],
-      attributes: ["firstName", "lastName"],
+      attributes: ["id", "firstName", "lastName"],
     });
 
     res.send(userFavs);
