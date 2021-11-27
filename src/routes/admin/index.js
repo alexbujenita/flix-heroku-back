@@ -59,6 +59,7 @@ adminRouter.get("/users/:id/movies", authJWT, async (req, res) => {
         {
           model: db.UserFavourite,
           attributes: [
+            "id",
             "movieRefId",
             "movieTitle",
             "moviePosterPath",
