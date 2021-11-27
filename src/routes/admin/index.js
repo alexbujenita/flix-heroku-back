@@ -15,7 +15,7 @@ adminRouter.get("/users", authJWT, async (req, res) => {
     });
     res.send(users);
   } catch (error) {
-    res.status(400).send(error);
+    res.status(500).send(error);
   }
 });
 
@@ -25,7 +25,7 @@ adminRouter.get("/users/:id/movies", authJWT, async (req, res) => {
   }
   const { id } = req.params;
   try {
-    const userFavs = await db.User.findAndCountAll({ //error?
+    const userFavs = await db.User.findAndCountAll({ //error??
       where: { id: parseInt(id) },
       subQuery: false,
       order: [[db.UserFavourite, "movieTitle", "ASC"]],
@@ -51,7 +51,7 @@ adminRouter.get("/users/:id/movies", authJWT, async (req, res) => {
 
     res.send(userFavs);
   } catch (error) {
-    res.status(400).send(error);
+    res.status(500).send(error);
   }
 });
 
@@ -70,7 +70,7 @@ adminRouter.delete(
       await fav.destroy();
       res.sendStatus(204);
     } catch (error) {
-      res.status(400).send(error?.message);
+      res.status(500).send(error?.message);
     }
   }
 );
