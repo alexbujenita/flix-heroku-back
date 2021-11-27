@@ -20,7 +20,7 @@ adminRouter.get("/users", authJWT, async (req, res) => {
 });
 
 adminRouter.get("/users/:id/movies", authJWT, async (req, res) => {
-  if (req.loggedUser !== 1) {
+  if (req.loggedUser !== 2) { // yeah yeah, shitty
     return res.sendStatus(403);
   }
   const { id } = req.params;
@@ -60,7 +60,7 @@ adminRouter.delete(
   "/users/:userId/movie/:movieId",
   authJWT,
   async (req, res) => {
-    if (req.loggedUser !== 1) {
+    if (req.loggedUser !== 2) { // yeah yeah, shitty
       return res.sendStatus(403);
     }
     const { userId, movieId } = req.params;
