@@ -6,7 +6,8 @@ const authJWT = require("../../middleware/auth/authJWT");
 const USER_ATTRB = ["id", "firstName", "lastName"];
 
 adminRouter.get("/users", authJWT, async (req, res) => {
-  if (req.loggedUser !== 2) { // yeah yeah, shitty
+  if (req.loggedUser !== 2) {
+    // yeah yeah, shitty
     return res.sendStatus(403);
   }
   try {
@@ -20,7 +21,8 @@ adminRouter.get("/users", authJWT, async (req, res) => {
 });
 
 adminRouter.get("/users/:id/movies", authJWT, async (req, res) => {
-  if (req.loggedUser !== 2) { // yeah yeah, shitty
+  if (req.loggedUser !== 2) {
+    // yeah yeah, shitty
     return res.sendStatus(403);
   }
   const { id } = req.params;
@@ -67,7 +69,6 @@ adminRouter.get("/users/:id/movies", authJWT, async (req, res) => {
             "rating",
             "description",
           ],
-          where,
         },
       ],
       attributes: ["firstName", "lastName"],
@@ -83,7 +84,8 @@ adminRouter.delete(
   "/users/:userId/movie/:movieId",
   authJWT,
   async (req, res) => {
-    if (req.loggedUser !== 2) { // yeah yeah, shitty
+    if (req.loggedUser !== 2) {
+      // yeah yeah, shitty
       return res.sendStatus(403);
     }
     const { userId, movieId } = req.params;
