@@ -54,8 +54,6 @@ adminRouter.get("/users/:id/movies", authJWT, async (req, res) => {
     const userFavs = await db.User.findAndCountAll({
       where: { id: parseInt(id) },
       subQuery: false,
-      limit,
-      offset,
       order: [[db.UserFavourite, "movieTitle", "ASC"]],
       include: [
         {
