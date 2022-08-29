@@ -52,9 +52,9 @@ herokuMigrationRouter.get("/:userId", async (req, res) => {
 
 
     for (const { movieRefId, seen, rating } of favs /*.slice(0, 3)*/) {
-      if (cnt >= 20) {
+      if (cnt >= 30) {
         cnt = 0;
-        await sleep(1000);
+        await sleep(500);
       }
       try {
         const { data } = await axios.get(
