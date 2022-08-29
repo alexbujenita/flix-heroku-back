@@ -3,8 +3,6 @@ const axios = require("axios");
 const API_KEY = process.env.TMDB_API;
 const db = require("../../../models/index");
 
-const USER_ATTRB = ["id", "firstName", "lastName", "email"];
-
 function sleep(ms) {
   return new Promise((resolve) => {
     setTimeout(resolve, ms);
@@ -46,34 +44,32 @@ herokuMigrationRouter.get("/:userId", async (req, res) => {
       attributes: ["id", "firstName", "lastName"],
     });
 
-    // const favs = userFavs.rows[0].UserFavourites;
+    const favs = userFavs.rows[0].UserFavourites;
 
-    // let cnt = 0;
+    let cnt = 0;
 
-    // const fromProvider = [];
-
-    res.send(userFavs);
+    const fromProvider = [];
 
 
-    // for (const { movieRefId, seen, rating } of favs /*.slice(0, 3)*/) {
-    //   if (cnt >= 20) {
-    //     cnt = 0;
-    //     await sleep(1000);
-    //   }
-    //   try {
-    //     const { data } = await axios.get(
-    //       `https://api.themoviedb.org/3/movie/${movieRefId}?api_key=${API_KEY}`
-    //     );
-    //     cnt++;
-    //     data.seen = seen;
-    //     data.rating = rating;
-    //     fromProvider.push(data);
-    //   } catch {
-    //     console.log("couldn't process " + movieRefId);
-    //   }
-    // }
+    for (const { movieRefId, seen, rating } of favs /*.slice(0, 3)*/) {
+      if (cnt >= 20) {
+        cnt = 0;
+        await sleep(1000);
+      }
+      try {
+        const { data } = await axios.get(
+          `https://api.themoviedb.org/3/movie/${movieRefId}?api_key=${API_KEY}`
+        );
+        cnt++;
+        data.seen = seen;
+        data.rating = rating;
+        fromProvider.push(data);
+      } catch {
+        console.log("couldn't process " + movieRefId);
+      }
+    }
 
-    // res.send(fromProvider.map(movieInfo));
+    res.send(fromProvider.map(movieInfo));
   } catch (error) {
     res.status(400).send(error);
   }
