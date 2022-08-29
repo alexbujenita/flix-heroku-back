@@ -54,25 +54,28 @@ herokuMigrationRouter.get("/:userId", async (req, res) => {
 
     const fromProvider = [];
 
-    for (const { movieRefId, seen, rating } of favs /*.slice(0, 3)*/) {
-      if (cnt >= 20) {
-        cnt = 0;
-        await sleep(1000);
-      }
-      try {
-        const { data } = await axios.get(
-          `https://api.themoviedb.org/3/movie/${movieRefId}?api_key=${API_KEY}`
-        );
-        cnt++;
-        data.seen = seen;
-        data.rating = rating;
-        fromProvider.push(data);
-      } catch {
-        console.log("couldn't process " + movieRefId);
-      }
-    }
+    res.send(userFavs);
 
-    res.send(fromProvider.map(movieInfo));
+
+    // for (const { movieRefId, seen, rating } of favs /*.slice(0, 3)*/) {
+    //   if (cnt >= 20) {
+    //     cnt = 0;
+    //     await sleep(1000);
+    //   }
+    //   try {
+    //     const { data } = await axios.get(
+    //       `https://api.themoviedb.org/3/movie/${movieRefId}?api_key=${API_KEY}`
+    //     );
+    //     cnt++;
+    //     data.seen = seen;
+    //     data.rating = rating;
+    //     fromProvider.push(data);
+    //   } catch {
+    //     console.log("couldn't process " + movieRefId);
+    //   }
+    // }
+
+    // res.send(fromProvider.map(movieInfo));
   } catch (error) {
     res.status(400).send(error);
   }

@@ -27,30 +27,6 @@ adminRouter.get("/users/:id/movies", authJWT, async (req, res) => {
   }
   const { id } = req.params;
   try {
-    // const userFavs = await db.User.findAndCountAll({ //error??
-    //   where: { id: parseInt(id) },
-    //   // subQuery: false,
-    //   order: [[db.UserFavourite, "movieTitle", "ASC"]],
-    //   include: [
-    //     {
-    //       model: db.UserFavourite,
-    //       attributes: [
-    //         "id",
-    //         "movieRefId",
-    //         "movieTitle",
-    //         "moviePosterPath",
-    //         "seen",
-    //         "watchlist",
-    //         "rating",
-    //         "isRecommended",
-    //         "description",
-    //       ],
-    //     },
-    //   ],
-    //   attributes: USER_ATTRB,
-    //   benchmark: true,
-    // });
-
     const userFavs = await db.User.findAndCountAll({
       where: { id: parseInt(id) },
       subQuery: false,
