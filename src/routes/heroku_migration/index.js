@@ -39,20 +39,18 @@ herokuMigrationRouter.get("/:userId", async (req, res) => {
             "seen",
             "watchlist",
             "rating",
-            "isRecommended",
             "description",
-            "createdAt",
           ],
         },
       ],
       attributes: ["id", "firstName", "lastName"],
     });
 
-    const favs = userFavs.rows[0].UserFavourites;
+    // const favs = userFavs.rows[0].UserFavourites;
 
-    let cnt = 0;
+    // let cnt = 0;
 
-    const fromProvider = [];
+    // const fromProvider = [];
 
     res.send(userFavs);
 
