@@ -45,8 +45,7 @@ herokuMigrationRouter.get("/:userId", async (req, res) => {
           ],
         },
       ],
-      attributes: USER_ATTRB,
-      benchmark: true,
+      attributes: ["id", "firstName", "lastName"],
     });
 
     const favs = userFavs.rows[0].UserFavourites;
